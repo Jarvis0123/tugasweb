@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Contoh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5FEFD;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #F5FEFD;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background: #10F5CC;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #00ffd0;
+        }
+
+        #hasilForm {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #10F5CC;
+            background-color: #10F5CC;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Haii</h2>
+
+<form action="form.html" method="POST" id="myForm">
+    <label for="fname">Nama Depan</label>
+    <input type="text" id="fname" name="namadepan" placeholder="Nama Depan" required> 
+
+    <label for="bname">Nama Belakang</label>
+    <input type="text" id="bname" name="namabelakang" placeholder="Nama Belakang" required> 
+
+    <label for="pekerjaan">Pekerjaan</label>
+    <input type="text" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan" required> 
+
+    <input type="submit" value="Submit">
+</form>
+
+<div id="hasilForm">
+    <!-- Hasil form akan ditampilkan di sini -->
+</div>
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+        e.preventDefault(); // Mencegah form mengirimkan permintaan
+
+        // Mengambil nilai dari inputan form
+        var namadepan = document.getElementById("fname").value;
+        var namabelakang = document.getElementById("bname").value;
+        var pekerjaan = document.getElementById("pekerjaan").value;
+
+        // Menampilkan hasil inputan di dalam elemen dengan id "hasilForm"
+        var hasilForm = document.getElementById("hasilForm");
+        hasilForm.innerHTML = "<h3>Hasil Form:</h3>" +
+            "<p>Nama Depan: " + namadepan + "</p>" +
+            "<p>Nama Belakang: " + namabelakang + "</p>" +
+            "<p>Pekerjaan: " + pekerjaan + "</p>";
+
+        // Mengosongkan inputan form setelah submit
+        document.getElementById("myForm").reset();
+    });
+</script>
+
+</body>
+</html>
